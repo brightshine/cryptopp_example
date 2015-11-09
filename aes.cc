@@ -5,7 +5,7 @@
 #include <cryptopp/filters.h>
 
 int main(int argc, char **argv) {
-        byte key[ CryptoPP::AES::DEFAULT_KEYLENGTH ], iv[ CryptoPP::AES::BLOCKSIZE ];
+        unsigned char key[ CryptoPP::AES::DEFAULT_KEYLENGTH ], iv[ CryptoPP::AES::BLOCKSIZE ];
         memset( key, 0x00, CryptoPP::AES::DEFAULT_KEYLENGTH );
         memset( iv, 0x00, CryptoPP::AES::BLOCKSIZE );
 
@@ -13,7 +13,10 @@ int main(int argc, char **argv) {
                 key[i] = ('0' + (i%10) ) ;
 
         std::cout << "block size: " << CryptoPP::AES::BLOCKSIZE << std::endl;
-        std::cout << "key(" << CryptoPP::AES::DEFAULT_KEYLENGTH << "):[" << key << "]" << std::endl;
+        std::cout << "key(" << CryptoPP::AES::DEFAULT_KEYLENGTH << "):[";
+	for(unsigned int x=0; x<CryptoPP::AES::DEFAULT_KEYLENGTH; x++)
+		std::cout << key[x];
+	std::cout << "]" << std::endl;
 
         std::string plaintext = "Hello world. To man to be a better man.";
         std::string ciphertext;
