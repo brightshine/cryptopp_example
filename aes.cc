@@ -6,8 +6,8 @@
 using namespace std;
 
 int main(int argc, char **argv) {
-	const unsigned KEY_LENGTH = CryptoPP::AES::DEFAULT_KEYLENGTH ;
-	const unsigned BLOCKSIZE = CryptoPP::AES::BLOCKSIZE;
+	const unsigned KEY_LENGTH = 32;
+	const unsigned BLOCKSIZE = 16;
 
         unsigned char key[ KEY_LENGTH ], iv[ BLOCKSIZE ];
         memset( key, 0x00, KEY_LENGTH );
